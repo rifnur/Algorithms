@@ -59,7 +59,49 @@ public class Main
 //
 //        System.out.println(msal.bynaryFind(7 ));
         /*Сортировка выбором О(n2)*/
+/*
+        1. Создать массив большого размера (100000 элементов).
+        2. Заполнить массив случайными числами.
+        3. Написать методы, реализующие рассмотренные виды сортировок, и проверить скорость выполнения каждой.
+        */
+        Random random = new Random();
+        int n = 100000;
+        MyArrayListSortViborka<Integer> mal = new MyArrayListSortViborka<>(n);
+        for (int i = 0; i < n; i++) {
+            mal.add(random.nextInt(100));
+        }
+//        System.out.println(mal);
+        long timeStartViborka = System.currentTimeMillis();
+        mal.selectionSort();
+//        System.out.println(mal);
+        long timeEndViborka = System.currentTimeMillis();
+        long milliseconds = timeEndViborka - timeStartViborka;
+        System.out.println("Сортировка выборкой выполнена за "+milliseconds+" миллисекунд");
+        /**/
 
+        MyArrayListSortViborka<Integer> malVstavka = new MyArrayListSortViborka<>(n);
+        for (int i = 0; i < n; i++) {
+            malVstavka.add(random.nextInt(100));
+        }
+        long timeStartVstavka = System.currentTimeMillis();
+        malVstavka.insertionSort();
+//        System.out.println(malVstavka);
+        long timeEndVstavka = System.currentTimeMillis();
+        long millisecondsVstavka = timeEndVstavka - timeStartVstavka;
+        System.out.println("Сортировка вставкой выполнена за "+millisecondsVstavka+" миллисекунд");
+
+        MyArrayListSortViborka<Integer> malBubble = new MyArrayListSortViborka<>(n);
+        for (int i = 0; i < n; i++) {
+            malBubble.add(random.nextInt(100));
+        }
+        long timeStartBubble = System.currentTimeMillis();
+        malBubble.bubbleSort();
+//        System.out.println(malBubble);
+        malBubble.bubbleSortOpt();
+//        System.out.println(malBubble);
+        long timeEndBubble = System.currentTimeMillis();
+        long millisecondsBubble = timeEndBubble - timeStartBubble;
+        System.out.println("Сортировка пузырьковая выполнена за "+millisecondsBubble+" миллисекунд");
 
     }
 
