@@ -21,9 +21,19 @@ public class Main {
 //        System.out.println(map);
 
 
-        LinearProbingHashMap<Integer, String> lphm = new LinearProbingHashMap<>(97);
-        lphm.put(5, "qwe");
-        lphm.put(15, "qweerwer");
-        System.out.println(lphm.get(15));
+//        LinearProbingHashMap<Integer, String> lphm = new LinearProbingHashMap<>(97);
+//        lphm.put(5, "qwe");
+//        lphm.put(15, "qweerwer");
+//        System.out.println(lphm.get(15));
+
+        ChainingHashMap<Integer, String> map = new ChainingHashMap<>(7);
+        map.put(1, "яблоко");
+        map.put(2, "груша");
+        map.put(3, "апельсин");
+        map.put(4, "персик");
+        map.put(5, "киви");
+        System.out.println(map);
+        map.delete(4);
+        System.out.println(map);
     }
 }

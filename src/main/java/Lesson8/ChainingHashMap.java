@@ -50,6 +50,20 @@ public class ChainingHashMap<K, V> {
         }
     }
 
+    public V delete(K key) {
+        checkKeyNotNull(key);
+        int i = hash(key);
+        for (int j = 0; j < st[i].size(); j++) {
+            if (key.equals(st[i].get(j).key)) {
+                Node temp = st[i].get(j);
+                st[i].remove(st[i].get(j));
+                size--;
+                return temp.value;
+            }
+        }
+        return null;
+    }
+
     public void put(K key, V value) {
         checkKeyNotNull(key);
         int i = hash(key);
